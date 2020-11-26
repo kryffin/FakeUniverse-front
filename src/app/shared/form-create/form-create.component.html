@@ -1,0 +1,33 @@
+<h2 class="subtitle"> Create your celestial body ! </h2>
+
+<form novalidate [formGroup]="form" class="form">
+
+  <mat-form-field appearance="fill">
+    <mat-label>Name</mat-label>
+    <input matInput placeholder="Name" name="name" formControlName="name" required />
+  </mat-form-field>
+  <br/>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Radius</mat-label>
+    <input matInput type="number" placeholder="0.0" name="radius" formControlName="radius" required />
+  </mat-form-field>
+  <br/>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Distance from the origin</mat-label>
+    <input matInput type="number" placeholder="0.0" name="distanceFromTheOrigin" formControlName="distanceFromOrigin" required />
+  </mat-form-field>
+  <br/>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Gravity</mat-label>
+    <input matInput type="number" placeholder="0.0" name="gravity" formControlName="gravity" required />
+  </mat-form-field>
+
+</form>
+
+<div class="buttons">
+  <button mat-flat-button type="button" color="warn" class="cancel" (click)="cancel()">Cancel</button>
+  <button mat-flat-button type="submit" color="accent" (click)="submit(form.value)" [disabled]="form.invalid">Create</button>
+</div>

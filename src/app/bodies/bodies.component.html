@@ -1,0 +1,42 @@
+<h1 class="title"> List of your celestial bodies : </h1>
+
+<table mat-table [dataSource]="bodies">
+
+  <ng-container matColumnDef="position">
+    <th mat-header-cell *matHeaderCellDef> No. </th>
+    <td mat-cell *matCellDef="let body"> {{bodies.indexOf(body)+1}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> Name </th>
+    <td mat-cell *matCellDef="let body"> {{body["name"]}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="radius">
+    <th mat-header-cell *matHeaderCellDef> Radius </th>
+    <td mat-cell *matCellDef="let body"> {{body["radius"]}} km </td>
+  </ng-container>
+
+  <ng-container matColumnDef="distanceFromOrigin">
+    <th mat-header-cell *matHeaderCellDef> Distance from the origin </th>
+    <td mat-cell *matCellDef="let body"> {{body["distanceFromOrigin"]}} ly </td>
+  </ng-container>
+
+  <ng-container matColumnDef="gravity">
+    <th mat-header-cell *matHeaderCellDef> Gravity </th>
+    <td mat-cell *matCellDef="let body"> {{body["gravity"]}} g </td>
+  </ng-container>
+
+  <ng-container matColumnDef="delete">
+    <th mat-header-cell *matHeaderCellDef></th>
+    <td mat-cell *matCellDef="let body"> <button mat-icon-button (click)="delete(body)"><mat-icon>delete</mat-icon></button> </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+</table>
+
+<div class="add-button">
+  <button mat-flat-button color="accent" [routerLink]="['/Create']">Create</button>
+</div>
